@@ -32,6 +32,9 @@
 ;; Option freeze-it-delay is the number of seconds to wait before freezing
 ;; text.
 
+;; The text remains read-only until you kill the buffer, so that you
+;; can't cheat.
+
 ;;; Code:
 
 (defgroup freeze-it
@@ -75,14 +78,22 @@
                (intern-soft (concat "forward-"
                                     (symbol-name freeze-it-go-back)))))
           (when go-back (funcall go-back -1)))
-        (put-text-property (point-min) (point) 'read-only t)))))
+        ;; Ignore error when text is already read-only.
+        (ignore-errors
+          (put-text-property (point-min) (point) 'read-only t))))))
 
 (define-minor-mode freeze-it-mode
-  "When enabled, after idle timer `freeze-it-delay', text in the current
-buffer before point is made read-only.
+  "When enabled, text before point in the current buffer is made
+read-only after idle timer `freeze-it-delay'.
 
-The option `freeze-it-go-back' controls how far back before point to
-leave alone."
+Option `freeze-it-go-back' will go back this far before making
+everything prior read-only.
+
+Option `freeze-it-delay' is the number of seconds to wait before
+freezing text.
+
+The text remains read-only until you kill the buffer, so that you
+can't cheat."
   :init-value nil
   :lighter freeze-it-lighter
   (if freeze-it-mode
