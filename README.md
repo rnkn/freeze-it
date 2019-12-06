@@ -9,3 +9,6 @@ paragraph.
 
 Option freeze-it-delay is the number of seconds to wait before freezing
 text.
+
+The text remains read-only until you kill the buffer, so that you
+can't cheat.
