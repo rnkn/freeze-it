@@ -98,7 +98,9 @@ can't cheat."
   :lighter freeze-it-lighter
   (if freeze-it-mode
       (run-with-idle-timer freeze-it-delay t #'freeze-it-now)
-    (cancel-function-timers #'freeze-it-now)))
+    (cancel-function-timers #'freeze-it-now)
+    (message "Freeze-It mode disabled in current buffer; \
+note that frozen text remains read-only")))
 
 (provide 'freeze-it)
 ;;; freeze-it.el ends here
