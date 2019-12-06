@@ -32,14 +32,14 @@
 
 (defcustom freeze-it-delay
   5
-  "Integer of seconds of idle time before freezing text."
+  "Number of seconds in idle time before running `freeze-it-now'."
   :type 'number
   :safe 'numberp
   :group 'freeze-it)
 
 (defcustom freeze-it-go-back
   'line
-  "Amount of text to go back before freezing."
+  "Amount of text before point to go back before freezing."
   :type '(choice (const :tag "None" nil)
                  (const :tag "Word" word)
                  (const :tag "Line" line)
@@ -56,13 +56,15 @@
   :group 'freeze-it)
 
 (defun freeze-it-now ()
+  "Make text before point read-only, first going back by `freeze-it-go-back'."
   (when freeze-it-mode
     (save-excursion
       (save-restriction
         (widen)
-        (when freeze-it-go-back
-          (funcall (intern (concat "forward-" (symbol-name freeze-go-back)))
-                   -1))
+        (let ((go-back
+               (intern-soft (concat "forward-"
+                                    (symbol-name freeze-it-go-back)))))
+          (when go-back (funcall go-back -1)))
         (put-text-property (point-min) (point) 'read-only t)))))
 
 (define-minor-mode freeze-it-mode
