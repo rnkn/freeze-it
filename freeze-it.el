@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2019  Paul W. Rankin
 
-;; Author: Paul W. Rankin <pwr@x2510.com>
+;; Author: Paul W. Rankin <code@paulwrankin.com>
 ;; Keywords: wp
 
 ;; This program is free software; you can redistribute it and/or modify
