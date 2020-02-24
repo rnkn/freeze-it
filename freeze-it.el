@@ -1,8 +1,8 @@
 ;;; freeze-it.el --- Minor mode to make your previous writing read-only  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2019  Paul W. Rankin
+;; Copyright (C) 2020 William Rankin
 
-;; Author: Paul W. Rankin <code@paulwrankin.com>
+;; Author: William Rankin <code@w.bydasein.com>
 ;; Keywords: wp
 
 ;; This program is free software; you can redistribute it and/or modify
