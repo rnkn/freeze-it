@@ -1,9 +1,12 @@
 ;;; freeze-it.el --- Minor mode to make your previous writing read-only  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020 William Rankin
+;; Copyright (c) 2020  Paul William Rankin
 
-;; Author: William Rankin <code@w.bydasein.com>
-;; Keywords: wp
+;; Author: William Rankin <code@william.bydasein.com>
+;; Keywords: wp, text
+;; Version: 0.1.0
+;; Package-Requires: ((emacs "24.5"))
+;; URL: https://github.com/rnkn/freeze-it
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
