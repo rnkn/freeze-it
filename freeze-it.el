@@ -73,7 +73,7 @@
 
 (defun freeze-it-now ()
   "Make text before point read-only, first going back by `freeze-it-go-back'."
-  (when freeze-it-mode
+  (when (bound-and-true-p freeze-it-mode)
     (save-excursion
       (save-restriction
         (widen)
@@ -81,8 +81,7 @@
                (intern-soft (concat "forward-"
                                     (symbol-name freeze-it-go-back)))))
           (when go-back (funcall go-back -1)))
-        ;; Ignore error when text is already read-only.
-        (ignore-errors
+        (with-silent-modifications
           (put-text-property (point-min) (point) 'read-only t))))))
 
 (define-minor-mode freeze-it-mode
