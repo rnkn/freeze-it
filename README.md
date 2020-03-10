@@ -1,14 +1,17 @@
 # Freeze It #
 
-An Emacs minor mode to kill your inner editor! After an idle amount of
-time, all text before point will be made read-only.
+An Emacs minor mode to kill your inner editor! Every writer struggles between
+their creative and critical sides, with progress frequently hindered by the
+temptation to go back and revise to get things *just right*.
 
-Option freeze-it-go-back will go back this far before making everything
-prior read-only. This can be nil, word, line, visible-line, line, or
-paragraph.
+Freeze It aims to combat this tempation. After an idle delay `freeze-it-delay`
+all text between `point-min` and a configurable distance before `point` will be
+made read-only.
 
-Option freeze-it-delay is the number of seconds to wait before freezing
-text.
+Option `freeze-it-go-back` controls how far this distance "goes back" before
+freezing text. This can be nil, `word`, `line`, `visible-line`, `line`, or
+`paragraph`.
 
-The text remains read-only until you kill the buffer, so that you
-can't cheat.
+Text remains read-only until you kill the buffer, so that you can't cheat. This
+is by design, because the minor mode targets the psychological *temptation* to
+revise your writing, rather than just the ability.
