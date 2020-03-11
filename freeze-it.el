@@ -109,3 +109,10 @@ note that frozen text remains read-only")))
 
 (provide 'freeze-it)
 ;;; freeze-it.el ends here
+
+;; Local Variables:
+;; coding: utf-8
+;; fill-column: 80
+;; require-final-newline: t
+;; sentence-end-double-space: nil
+;; End:
