@@ -113,7 +113,7 @@
 
 (defun freeze-it-delete-overlay ()
   "Remove the overlay highlighting read-only text."
-  (when freeze-it-overlay
+  (when (overlayp freeze-it-overlay)
     (delete-overlay freeze-it-overlay)))
 
 (defun freeze-it-show ()
