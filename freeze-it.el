@@ -78,7 +78,7 @@
   :safe 'stringp
   :group 'freeze-it)
 
-(defcustom freeze-it-show-delay 1.0
+(defcustom freeze-it-show-delay 1.25
   "Number of seconds to show read-only text with `freeze-it-show'."
   :type 'number
   :safe 'numberp
