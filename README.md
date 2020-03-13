@@ -12,6 +12,10 @@ Option `freeze-it-go-back` controls how far this distance "goes back" before
 freezing text. This can be nil, `word`, `line`, `visible-line`, `line`, or
 `paragraph`.
 
+Command `freeze-it-show` will momentarily highlight read-only text in
+the buffer. The highlighting uses `freeze-it-show` face and remains for
+`freeze-it-show-delay` seconds.
+
 Text remains read-only until you kill the buffer, so that you can't cheat. This
 is by design, because the minor mode targets the psychological *temptation* to
 revise your writing, rather than just the ability.

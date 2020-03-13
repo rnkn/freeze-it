@@ -4,7 +4,7 @@
 
 ;; Author: William Rankin <code@william.bydasein.com>
 ;; Keywords: wp, text
-;; Version: 0.1.2
+;; Version: 0.2.0-beta
 ;; Package-Requires: ((emacs "24.5"))
 ;; URL: https://github.com/rnkn/freeze-it
 
@@ -36,6 +36,10 @@
 ;; Option freeze-it-go-back controls how far this distance "goes back" before
 ;; freezing text. This can be nil, word, line, visible-line, line, or
 ;; paragraph.
+
+;; Command freeze-it-show will momentarily highlight read-only text in
+;; the buffer. The highlighting uses freeze-it-show face and remains for
+;; freeze-it-show-delay seconds.
 
 ;; Text remains read-only until you kill the buffer, so that you can't cheat. This
 ;; is by design, because the minor mode targets the psychological *temptation* to
@@ -74,6 +78,19 @@
   :safe 'stringp
   :group 'freeze-it)
 
+(defcustom freeze-it-show-delay 1.0
+  "Number of seconds to show read-only text with `freeze-it-show'."
+  :type 'number
+  :safe 'numberp
+  :group 'freeze-it)
+
+(defface freeze-it-show
+  '((t (:inherit shadow)))
+  "Default face for showing read-only text with `freeze-it-show'.")
+
+(defvar-local freeze-it-overlay nil
+  "Overlay used to highlight read-only text.")
+
 (defun freeze-it-now ()
   "Make text before point read-only, first going back by `freeze-it-go-back'."
   (when (bound-and-true-p freeze-it-mode)
@@ -86,6 +103,25 @@
           (when go-back (funcall go-back -1)))
         (with-silent-modifications
           (put-text-property (point-min) (point) 'read-only t))))))
+
+(defun freeze-it-make-overlay ()
+  "Make the overlay highlighting read-only text."
+  (setq freeze-it-overlay
+        (make-overlay (point-min)
+                      (next-single-property-change (point-min) 'read-only)))
+  (overlay-put freeze-it-overlay 'face 'freeze-it-show))
+
+(defun freeze-it-delete-overlay ()
+  "Remove the overlay highlighting read-only text."
+  (when freeze-it-overlay
+    (delete-overlay freeze-it-overlay)))
+
+(defun freeze-it-show ()
+  "Momentarily highlight read-only text."
+  (interactive)
+  (when (get-char-property (point-min) 'read-only)
+    (freeze-it-make-overlay)
+    (run-with-timer freeze-it-show-delay nil #'freeze-it-delete-overlay)))
 
 (define-minor-mode freeze-it-mode
   "When enabled, text before point in the current buffer is made
