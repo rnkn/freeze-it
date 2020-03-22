@@ -1,6 +1,7 @@
 # Freeze It #
 
 [![MELPA](https://melpa.org/packages/freeze-it-badge.svg)](https://melpa.org/#/freeze-it)
+[![MELPA Stable](https://stable.melpa.org/packages/freeze-it-badge.svg)](https://stable.melpa.org/#/freeze-it)
 
 An Emacs minor mode to kill your inner editor! Every writer struggles to
 balance their creative and critical sides, with progress frequently
