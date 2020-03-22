@@ -4,7 +4,7 @@
 
 ;; Author: William Rankin <code@william.bydasein.com>
 ;; Keywords: wp, text
-;; Version: 0.2.0-beta
+;; Version: 0.2.1-beta
 ;; Package-Requires: ((emacs "24.5"))
 ;; URL: https://github.com/rnkn/freeze-it
 
@@ -25,8 +25,8 @@
 
 ;; # Freeze It #
 
-;; An Emacs minor mode to kill your inner editor! Every writer struggles
-;; between their creative and critical sides, with progress frequently
+;; An Emacs minor mode to kill your inner editor! Every writer struggles to
+;; balance their creative and critical sides, with progress frequently
 ;; hindered by the temptation to go back and revise to get things *just
 ;; right*.
 
@@ -39,8 +39,8 @@
 ;; line, or paragraph.
 
 ;; Command freeze-it-show will momentarily highlight read-only text in
-;; the buffer. The highlighting uses freeze-it-show face and remains for
-;; freeze-it-show-delay seconds.
+;; the buffer while there is no user input. The highlighting uses
+;; freeze-it-show face and displays for freeze-it-show-delay seconds.
 
 ;; Text remains read-only until you kill the buffer, so that you can't
 ;; cheat. This is by design, because the minor mode targets the
@@ -122,8 +122,12 @@
   "Momentarily highlight read-only text."
   (interactive)
   (when (get-char-property (point-min) 'read-only)
-    (freeze-it-make-overlay)
-    (run-with-timer freeze-it-show-delay nil #'freeze-it-delete-overlay)))
+    (unwind-protect
+        (while-no-input
+          (freeze-it-make-overlay)
+          (redisplay)
+          (sleep-for freeze-it-show-delay))
+      (freeze-it-delete-overlay))))
 
 (define-minor-mode freeze-it-mode
   "When enabled, text before point in the current buffer is made

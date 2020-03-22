@@ -1,7 +1,9 @@
 # Freeze It #
 
-An Emacs minor mode to kill your inner editor! Every writer struggles
-between their creative and critical sides, with progress frequently
+[![MELPA](https://melpa.org/packages/freeze-it-badge.svg)](https://melpa.org/#/freeze-it)
+
+An Emacs minor mode to kill your inner editor! Every writer struggles to
+balance their creative and critical sides, with progress frequently
 hindered by the temptation to go back and revise to get things *just
 right*.
 
@@ -14,8 +16,8 @@ before freezing text. This can be nil, `word`, `line`, `visible-line`,
 `line`, or `paragraph`.
 
 Command `freeze-it-show` will momentarily highlight read-only text in
-the buffer. The highlighting uses `freeze-it-show` face and remains for
-`freeze-it-show-delay` seconds.
+the buffer while there is no user input. The highlighting uses
+`freeze-it-show` face and displays for `freeze-it-show-delay` seconds.
 
 Text remains read-only until you kill the buffer, so that you can't
 cheat. This is by design, because the minor mode targets the
