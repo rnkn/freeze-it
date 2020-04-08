@@ -3,6 +3,8 @@
 [![MELPA](https://melpa.org/packages/freeze-it-badge.svg)](https://melpa.org/#/freeze-it)
 [![MELPA Stable](https://stable.melpa.org/packages/freeze-it-badge.svg)](https://stable.melpa.org/#/freeze-it)
 
+![freeze-it screenshot](https://user-images.githubusercontent.com/1256849/78749962-a2c23e80-79b2-11ea-9eeb-ecc47013f822.png)
+
 An Emacs minor mode to kill your inner editor! Every writer struggles to
 balance their creative and critical sides, with progress frequently
 hindered by the temptation to go back and revise to get things *just
