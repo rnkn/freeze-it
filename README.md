@@ -1,7 +1,7 @@
 # Freeze It #
 
-[![MELPA](https://melpa.org/packages/freeze-it-badge.svg)](https://melpa.org/#/freeze-it)
-[![MELPA Stable](https://stable.melpa.org/packages/freeze-it-badge.svg)](https://stable.melpa.org/#/freeze-it)
+[![MELPA Stable](https://stable.melpa.org/packages/freeze-it-badge.svg)][1]
+[![MELPA](https://melpa.org/packages/freeze-it-badge.svg)][2]
 
 ![freeze-it screenshot](https://user-images.githubusercontent.com/1256849/78749962-a2c23e80-79b2-11ea-9eeb-ecc47013f822.png)
 
@@ -26,3 +26,6 @@ Text remains read-only until you kill the buffer, so that you can't
 cheat. This is by design, because the minor mode targets the
 psychological *temptation* to revise your writing, rather than just the
 ability.
+
+[1]: https://stable.melpa.org/#/freeze-it
+[2]: https://melpa.org/#/freeze-it
