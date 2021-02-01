@@ -5,7 +5,7 @@
 ;; Author: Paul W. Rankin <pwr@bydasein.com>
 ;; Keywords: wp, text
 ;; Version: 0.2.2
-;; Package-Requires: ((emacs "24.5"))
+;; Package-Requires: ((emacs "24.4"))
 ;; URL: https://github.com/rnkn/freeze-it
 
 ;; This program is free software; you can redistribute it and/or modify
