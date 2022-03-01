@@ -153,6 +153,7 @@
   (when (overlayp freeze-it-overlay)
     (delete-overlay freeze-it-overlay)))
 
+;;;###autoload
 (defun freeze-it-show ()
   "Momentarily highlight read-only text."
   (interactive)
@@ -164,6 +165,7 @@
           (sleep-for freeze-it-show-delay))
       (freeze-it-delete-overlay))))
 
+;;;###autoload
 (define-minor-mode freeze-it-mode
   "When enabled, text before point in the current buffer is made
 read-only after idle timer `freeze-it-delay'.
